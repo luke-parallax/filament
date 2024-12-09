@@ -161,6 +161,21 @@ public function panel(Panel $panel): Panel
 }
 ```
 
+### Prefetching links on hover
+
+By default, when enabling SPA mode, Filament uses Livewire's default gentle [prefetching](https://livewire.laravel.com/docs/navigate#prefetching-links) on-click strategy. If you would like to use the more aggressive prefetching approach by prefetching the next page on hover, you can pass the `prefetch: true` option to the `spa()` method:
+
+```php
+use Filament\Panel;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        // ...
+        ->spa(prefetch: true);
+}
+```
+
 ### Disabling SPA navigation for specific URLs
 
 By default, when enabling SPA mode, any URL that lives on the same domain as the current request will be navigated to using Livewire's [`wire:navigate`](https://livewire.laravel.com/docs/navigate) feature. If you want to disable this for specific URLs, you can use the `spaUrlExceptions()` method:
